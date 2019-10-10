@@ -46,10 +46,12 @@ The class *declaration* typically goes in the `.h` file. The *declaration* gives
 class Polygon {
 
 // Private members and methods are only accessible via methods in the class definition
-// Another option is 'protected', which are members and methods only accessible in the class definition or by classes who extend this class
 private:
     int num_sides;    	// Number of sides
-    std::string name    // Name of the polygon
+    
+// Protected members and methods are only accessible in the class definition or by classes who extend this class
+protected:
+    std::string name;    // Name of the polygon
 
 // Public members and methods are accessible to anyone who creates an instance of the class
 public:
@@ -182,7 +184,7 @@ Rectangle::Rectangle(const std::string &name) : Polygon(4, name) {
 }
 
 // Compute the area of the rectangle
-Rectangle::Area(void) const {
+const int Rectangle::Area(void) const {
 	return this->length * this->width;
 }
 ```
@@ -268,7 +270,7 @@ array.Print(Array(12345));
 #### 2.3.1 General Keywords
 [`asm`](http://en.cppreference.com/w/cpp/language/asm)
 [`auto`](http://en.cppreference.com/w/cpp/language/auto)
-[`cont`](http://en.cppreference.com/w/cpp/language/cv)
+[`const`](http://en.cppreference.com/w/cpp/language/cv)
 [`constexpr` (*since C++11*)](http://en.cppreference.com/w/cpp/language/constexpr)
 [`explicit`](http://en.cppreference.com/w/cpp/language/explicit)
 [`export` (*until C++11*)](http://en.cppreference.com/w/cpp/keyword/export)
